@@ -1,0 +1,50 @@
+\begin{thebibliography}{}
+\itemsep0pt
+
+\bibitem[Daley et~al., 2013]{daley2013field}
+Daley, T.~M., B.~M. Freifeld, J. Ajo-Franklin, S. Dou, R. Pevzner, V.
+  Shulakova, S. Kashikar, D.~E. Miller, J. Goetz, J. Henninges, et~al.,  2013,
+  Field testing of fiber-optic distributed acoustic sensing (das) for
+  subsurface seismic monitoring: The Leading Edge, {\bf 32}, 699--706.
+
+\bibitem[Gerven and Bohte, 2018]{Gerven2018}
+Gerven, M.~V., and S. Bohte,  2018, {Artificial Neural Networks as Models of
+  Neural Information Processing}.
+
+\bibitem[Hornman et~al., 2013]{hornman2013field}
+Hornman, K., B. Kuvshinov, P. Zwartjes, and A. Franzen,  2013, Field trial of a
+  broadside-sensitive distributed acoustic sensing cable for surface seismic:
+  Presented at the 75th EAGE Conference \& Exhibition incorporating SPE EUROPEC
+  2013.
+
+\bibitem[Jreij et~al., 2018]{jreij2018improving}
+Jreij, S., W. Trainor-Guitton, J. Simmons, and P. Team,  2018, Improving
+  point-sensor image resolution with distributed acoustic sensing at brady’s
+  enhanced geothermal system: Presented at the , Stanford Geothermal Workshop.
+
+\bibitem[Parker et~al., 2014]{Parker2014}
+Parker, T., S. Shatalin, and M. Farhadiroushan,  2014, {Distributed Acoustic
+  Sensing - A new tool for seismic applications}: First Break, {\bf 32},
+  61--69.
+
+\bibitem[Russakovsky et~al., 2015]{ILSVRC15}
+Russakovsky, O., J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A.
+  Karpathy, A. Khosla, M. Bernstein, A.~C. Berg, and L. Fei-Fei,  2015,
+  {ImageNet Large Scale Visual Recognition Challenge}: International Journal of
+  Computer Vision (IJCV), {\bf 115}, 211--252.
+
+\bibitem[Samuel, 1959]{samuel1959some}
+Samuel, A.~L.,  1959, Some studies in machine learning using the game of
+  checkers: IBM Journal of research and development, {\bf 3}, 210--229.
+
+\bibitem[Szegedy et~al., 2015]{Szegedy2015}
+Szegedy, C., V. Vanhoucke, S. Ioffe, J. Shlens, and Z. Wojna,  2015,
+  {Rethinking the Inception Architecture for Computer Vision}.
+
+\bibitem[Yavuz et~al., 2016]{yavuz2016subsurface}
+Yavuz, S., B. Freifeld, R. Pevzner, K. Tertyshnikov, A. Dzunic, S. Ziramov, V.
+  Shulakova, M. Robertson, T. Daley, A. Kepic, et~al.,  2016, Subsurface
+  imaging using buried das and geophone arrays-preliminary results from co2crc
+  otway project: Presented at the 78th EAGE Conference and Exhibition 2016.
+
+\end{thebibliography}
