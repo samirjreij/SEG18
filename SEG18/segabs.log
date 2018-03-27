@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/MacPorts 2016_3) (preloaded format=pdflatex 2016.11.27)  26 MAR 2018 11:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/MacPorts 2016_3) (preloaded format=pdflatex 2016.11.27)  26 MAR 2018 17:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -306,19 +306,26 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count129
 
-(./pcsmacros.tex)
-LaTeX Font Info:    Try loading font information for U+msa on input line 30.
- (/opt/local/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+(./pcsmacros.tex) <./Fig/dasngeophone.pdf, id=1, 884.30376pt x 516.93124pt>
+File: ./Fig/dasngeophone.pdf Graphic file (type pdf)
+
+<use ./Fig/dasngeophone.pdf>
+Package pdftex.def Info: ./Fig/dasngeophone.pdf used on input line 34.
+(pdftex.def)             Requested size: 211.3883pt x 123.5691pt.
+LaTeX Font Info:    Try loading font information for U+msa on input line 37.
+
+(/opt/local/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 30.
+LaTeX Font Info:    Try loading font information for U+msb on input line 37.
 
 (/opt/local/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-] (./segabs.bbl [2
+ <./Fig/dasngeophone.pdf>]
+(./segabs.bbl [2
 
 ]
 Missing character: There is no â in font cmr9!
@@ -327,24 +334,23 @@ Missing character: There is no ™ in font cmr9!
 ) [3
 
 
-]
-(./segabs.aux) ) 
+] (./segabs.aux) ) 
 Here is how much of TeX's memory you used:
- 5696 strings out of 494114
- 79524 string characters out of 6155600
- 147238 words of memory out of 5000000
- 8993 multiletter control sequences out of 15000+600000
+ 5707 strings out of 494114
+ 79747 string characters out of 6155600
+ 147254 words of memory out of 5000000
+ 9002 multiletter control sequences out of 15000+600000
  8957 words of font info for 34 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 51i,6n,44p,1242b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
-</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmbx10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9
-.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></
-opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on segabs.pdf (3 pages, 76459 bytes).
+ 51i,6n,44p,1007b,282s stack positions out of 5000i,500n,10000p,200000b,80000s
+</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmbx10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmb
+x9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb>
+</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on segabs.pdf (3 pages, 1817024 bytes).
 PDF statistics:
- 30 PDF objects out of 1000 (max. 8388607)
- 20 compressed objects within 1 object stream
+ 35 PDF objects out of 1000 (max. 8388607)
+ 24 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
