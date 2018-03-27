@@ -29,9 +29,11 @@ Although DAS is utilized mainly in borehole acquisition, it has been shown repea
 
 DAS has many advantages in various industries. One of the most notable is that DAS enables seismic surveys to be acquired with dense sampling (as small as 10-centimeter receiver spacing) at large distances (tens of kilometers long). Achieving even 1-meter sampling with conventional geophone is expensive and logistically difficult. Deployment of DAS in surface acquisition is as simple as trenching the fiber in the ground and recording using an interrogator unit.
 
-This paper is inspired by the PoroTomo survey geometry shown in Figure~\ref{fig:dasngeophone}.
+This paper is inspired by the PoroTomo survey geometry shown in Figure~\ref{fig:dasngeophone}. The geophone acquisition has 238 geophones spaced anywhere from 50 meters to 150 meters apart. This receiver spacing is much greater than a conventional reflection seismic surveys which leads to aliased data as there is not enough spatial sampling. Fortunately, the PoroTomo survey also included about nine kilometers of DAS cable. The experiments presented in this paper utilize the dense spatial sampling of broadside insensitive DAS fiber and the broadside sensitivity of sparse, multi-component geophones. The energy norm imaging condition is to create an image of sparse, multi-component geophones by themselves and an image of sparse, multi-component geophones in combination with dense, DAS fiber.   
 
 \plot{dasngeophone}{width=.45\textwidth}{Sources (shown in green), multicomponent receiver (shown in red), and distributed acoustic sensing (shown in blue) geometry used in the PoroTomo survey.}
+
+The example shown in this paper are numerical examples which allow for quantitative analysis. All of the experiments presented in the paper can be qualitatively analyzed and discussed, but qualitative analysis is always different between people due to different biases and perspectives. A method to quantitatively analyze the experiments is needed to do effective comparisons.
 
 
 \subsection{Convolutional Neural Network}
