@@ -1,15 +1,32 @@
 \begin{thebibliography}{}
 \itemsep0pt
 
+\bibitem[Claerbout, 1985]{claerbout1985imaging}
+Claerbout, J.~F.,  1985, Imaging the earth's interior: Blackwell scientific
+  publications Oxford, {\bf 1}.
+
 \bibitem[Daley et~al., 2013]{daley2013field}
 Daley, T.~M., B.~M. Freifeld, J. Ajo-Franklin, S. Dou, R. Pevzner, V.
   Shulakova, S. Kashikar, D.~E. Miller, J. Goetz, J. Henninges, et~al.,  2013,
   Field testing of fiber-optic distributed acoustic sensing (das) for
   subsurface seismic monitoring: The Leading Edge, {\bf 32}, 699--706.
 
-\bibitem[Gerven and Bohte, 2018]{Gerven2018}
-Gerven, M.~V., and S. Bohte,  2018, {Artificial Neural Networks as Models of
-  Neural Information Processing}.
+\bibitem[Feigl, 2017]{feigl2017overview}
+Feigl, K.~L.,  2017, Overview and preliminary results from the porotomo project
+  at brady hot springs, nevada: Poroelastic tomography by adjoint inverse
+  modeling of data from seismology, geodesy, and hydrology: Presented at the
+  Stanford Geothermal Workshop.
+
+\bibitem[Folsom et~al., 2018]{folsomimaging}
+Folsom, M., J. Lopeman, D. Perkin, and M. Sophy,  2018, Imaging shallow outflow
+  alteration to locate productive faults in ormat’s brady’s and desert peak
+  fields using csamt.
+
+\bibitem[Fomel et~al., 2013]{fomel2013madagascar}
+Fomel, S., P. Sava, I. Vlad, Y. Liu, and V. Bashkardin,  2013, Madagascar:
+  Open-source software project for multidimensional data analysis and
+  reproducible computational experiments: Journal of Open Research Software,
+  {\bf 1}.
 
 \bibitem[Hornman et~al., 2013]{hornman2013field}
 Hornman, K., B. Kuvshinov, P. Zwartjes, and A. Franzen,  2013, Field trial of a
@@ -27,6 +44,10 @@ Parker, T., S. Shatalin, and M. Farhadiroushan,  2014, {Distributed Acoustic
   Sensing - A new tool for seismic applications}: First Break, {\bf 32},
   61--69.
 
+\bibitem[Rocha et~al., 2016]{rocha2016isotropic}
+Rocha, D., N. Tanushev, and P. Sava,  2016, Isotropic elastic wavefield imaging
+  using the energy norm: Geophysics, {\bf 81}, S207--S219.
+
 \bibitem[Russakovsky et~al., 2015]{ILSVRC15}
 Russakovsky, O., J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A.
   Karpathy, A. Khosla, M. Bernstein, A.~C. Berg, and L. Fei-Fei,  2015,
@@ -36,6 +57,11 @@ Russakovsky, O., J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A.
 \bibitem[Samuel, 1959]{samuel1959some}
 Samuel, A.~L.,  1959, Some studies in machine learning using the game of
   checkers: IBM Journal of research and development, {\bf 3}, 210--229.
+
+\bibitem[Siler and Faulds, 2013]{siler2013three}
+Siler, D.~L., and J.~E. Faulds,  2013, Three-dimensional geothermal fairway
+  mapping: Examples from the western great basin, usa,: GRC Transactions, {\bf
+  7}, 327--332.
 
 \bibitem[Szegedy et~al., 2015]{Szegedy2015}
 Szegedy, C., V. Vanhoucke, S. Ioffe, J. Shlens, and Z. Wojna,  2015,

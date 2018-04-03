@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/MacPorts 2016_3) (preloaded format=pdflatex 2016.11.27)  26 MAR 2018 18:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/MacPorts 2016_3) (preloaded format=pdflatex 2016.11.27)  31 MAR 2018 18:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -310,14 +310,14 @@ Package caption Info: End \AtBeginDocument code.
 File: ./Fig/dasngeophone.pdf Graphic file (type pdf)
 
 <use ./Fig/dasngeophone.pdf>
-Package pdftex.def Info: ./Fig/dasngeophone.pdf used on input line 34.
+Package pdftex.def Info: ./Fig/dasngeophone.pdf used on input line 35.
 (pdftex.def)             Requested size: 211.3883pt x 123.5691pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 39.
+LaTeX Font Info:    Try loading font information for U+msa on input line 37.
 
 (/opt/local/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 39.
+LaTeX Font Info:    Try loading font information for U+msb on input line 37.
 
 (/opt/local/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -325,32 +325,115 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
  <./Fig/dasngeophone.pdf>]
-(./segabs.bbl [2
+<./Fig/SVReflection2.pdf, id=15, 761.78743pt x 430.09122pt>
+File: ./Fig/SVReflection2.pdf Graphic file (type pdf)
 
-]
+<use ./Fig/SVReflection2.pdf>
+Package pdftex.def Info: ./Fig/SVReflection2.pdf used on input line 40.
+(pdftex.def)             Requested size: 211.3883pt x 119.34187pt.
+
+Overfull \hbox (0.60274pt too wide) in paragraph at lines 42--43
+\OT1/cmr/m/n/9 ure 2[], only long-offset P-waves and short-offset SV-waves
+ []
+
+<./Fig/SSourceVp.pdf, id=16, 668.4975pt x 619.31375pt>
+File: ./Fig/SSourceVp.pdf Graphic file (type pdf)
+
+<use ./Fig/SSourceVp.pdf>
+Package pdftex.def Info: ./Fig/SSourceVp.pdf used on input line 54.
+(pdftex.def)             Requested size: 211.3883pt x 195.8314pt.
+
+Overfull \hbox (3.03629pt too wide) in paragraph at lines 56--57
+\OT1/cmr/m/n/9 fer-ence mod-el-ing (FDM) code (\OT1/cmr/m/it/9 ewefdm\OT1/cmr/m
+/n/9 ) present in Mada-
+ []
+
+[2 <./Fig/SVReflection2.pdf> <./Fig/SSourceVp.pdf>]
+Missing character: There is no Î in font cmr9!
+Missing character: There is no » in font cmr9!
+Missing character: There is no Î in font cmr9!
+Missing character: There is no ¼ in font cmr9!
+
+<./Fig/eimgs.pdf, id=48, 668.4975pt x 619.31375pt>
+File: ./Fig/eimgs.pdf Graphic file (type pdf)
+ <use ./Fig/eimgs.pdf>
+Package pdftex.def Info: ./Fig/eimgs.pdf used on input line 79.
+(pdftex.def)             Requested size: 211.3883pt x 195.8314pt.
+
+<./Fig/2Tot.pdf, id=49, 668.4975pt x 619.31375pt>
+File: ./Fig/2Tot.pdf Graphic file (type pdf)
+ <use ./Fig/2Tot.pdf>
+Package pdftex.def Info: ./Fig/2Tot.pdf used on input line 79.
+(pdftex.def)             Requested size: 211.3883pt x 195.8314pt.
+
+Overfull \hbox (9.60475pt too wide) in paragraph at lines 88--89
+[]\OT1/cmr/m/n/9 The Inception-v3 model's abil-ity to iden-tify fea-tures withi
+n
+ []
+
+<./Fig/reflectors.pdf, id=50, 650.43pt x 182.79843pt>
+File: ./Fig/reflectors.pdf Graphic file (type pdf)
+
+<use ./Fig/reflectors.pdf>
+Package pdftex.def Info: ./Fig/reflectors.pdf used on input line 90.
+(pdftex.def)             Requested size: 211.3883pt x 59.40878pt.
+
+<./Fig/notreflectors.pdf, id=51, 648.1489pt x 177.71364pt>
+File: ./Fig/notreflectors.pdf Graphic file (type pdf)
+
+<use ./Fig/notreflectors.pdf>
+Package pdftex.def Info: ./Fig/notreflectors.pdf used on input line 90.
+(pdftex.def)             Requested size: 211.3883pt x 57.95961pt.
+
+Overfull \hbox (7.40775pt too wide) in paragraph at lines 100--100
+[] 
+ []
+
+[3]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 106.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 122.
+
+(./segabs.bbl [4 <./Fig/eimgs.pdf> <./Fig/2Tot.pdf> <./Fig/reflectors.pdf> <./F
+ig/notreflectors.pdf>]
 Missing character: There is no â in font cmr9!
 Missing character: There is no € in font cmr9!
 Missing character: There is no ™ in font cmr9!
-) [3
-
+Missing character: There is no â in font cmr9!
+Missing character: There is no € in font cmr9!
+Missing character: There is no ™ in font cmr9!
+Missing character: There is no â in font cmr9!
+Missing character: There is no € in font cmr9!
+Missing character: There is no ™ in font cmr9!
+) [5
 
 ] (./segabs.aux) ) 
 Here is how much of TeX's memory you used:
- 5707 strings out of 494114
- 79747 string characters out of 6155600
- 147254 words of memory out of 5000000
- 9002 multiletter control sequences out of 15000+600000
- 8957 words of font info for 34 fonts, out of 8000000 for 9000
+ 5789 strings out of 494114
+ 81432 string characters out of 6155600
+ 151661 words of memory out of 5000000
+ 9077 multiletter control sequences out of 15000+600000
+ 9302 words of font info for 35 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 51i,6n,44p,1007b,282s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 51i,16n,55p,1007b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
 </opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/c
 m/cmbx10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmb
-x9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on segabs.pdf (3 pages, 1817851 bytes).
+x9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cmextra/cmex
+9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi9.pfb></opt/
+local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></opt/local/s
+hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></opt/local/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></opt/local/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></opt/local/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on segabs.pdf (5 pages, 1945509 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
+ 160 PDF objects out of 1000 (max. 8388607)
+ 104 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
