@@ -1,0 +1,22 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces PoroTomo survey geometry. Green dots represent source locations, red dots represent geophone locations, and the blue line represents the surface DAS layout.}}{32}
+\contentsline {figure}{\numberline {2}{\ignorespaces Consider a source that generates both P and S waves; this is a 2-D Homogeneous, flat-layered, isotropic ray path example. The blue lines represent ray paths of the labeled waves, the blue arrow represents the propagation direction of the wave, the green line represents a horizontal reflector in the subsurface, and the yellow star represents the source. (a) Demonstration of P-P wave effect on fiber using ray paths. Particle motion is inline with propagation direction (blue arrow). The fiber will only record data at large offsets. (b) Demonstration of P-SV wave effect on fiber using ray paths. Particle motion is perpendicular with the propagation direction (green arrows). The fiber will only record data at short offsets.}}{33}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{33}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{33}
+\contentsline {figure}{\numberline {3}{\ignorespaces Amplitude versus emerging angle for both geophone (blue) and horizontal DAS (red). An emerging angle of $0^{\circ }$ indicates a wave that is propagating perpendicular to the surface and an emerging angle of $90^{\circ }$ degrees indicated a wave is propagating parallel to the surface. (a) Sensitivity with respect to a P-wave at different emerging angles of horizontal DAS (red) and geophone z-component (blue). (b) Sensitivity with respect to an SV-wave at different emerging angles of horizontal DAS (red) and geophone x-component (blue).}}{34}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{34}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{34}
+\contentsline {figure}{\numberline {4}{\ignorespaces \citet {siler2013three} fault density mapping within the PoroTomo Survey box. This model was used as a reflectivity model for the experiments within this section.}}{35}
+\contentsline {figure}{\numberline {5}{\ignorespaces Reflectivity model from \citet {siler2013three} extracted at the location of Well 56-A1 used for simulating data. Blue dots represent source locations and the red dots represent geophone locations. DAS fiber was placed between the geophone locations.}}{36}
+\contentsline {figure}{\numberline {6}{\ignorespaces (a) Resulting image from migrating geophone synthetic data. (b) Resulting image from migrating DAS synthetic data. (c) Combined image from migrating DAS and geophone synthetic data.}}{37}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{37}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{37}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{37}
+\contentsline {figure}{\numberline {7}{\ignorespaces Reflection amplitudes that represent the top 90\% of energy recorded.}}{38}
+\contentsline {figure}{\numberline {8}{\ignorespaces Inception v3 model architecture for one module modified from \citet {Szegedy2015}. This specific module performs filters on three pixel by three pixel as well as one pixel by one pixel subsets of the original image. In parallel to these filters is a pooling layer that performs an operation such as an average of all cells in subsets of the image.}}{39}
+\contentsline {figure}{\numberline {9}{\ignorespaces (a) Examples of the automatically generated faults images used to train the CNN. (b) Examples of the automatically generated images that were not faults used to train the CNN.}}{40}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{40}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{40}
+\contentsline {figure}{\numberline {10}{\ignorespaces Comparison between many velocity models extracted at Well 56-1A.}}{41}
+\contentsline {figure}{\numberline {11}{\ignorespaces Body wave (P-wave) velocity (m/s) model from sweep interferometry in 3-D perspective \citep {Matzel2017}.}}{42}
+\contentsline {figure}{\numberline {12}{\ignorespaces PoroTomo DAS survey geometry overlain by the vector direction (red) of the fiber at every location.}}{43}
+\contentsline {figure}{\numberline {13}{\ignorespaces Four layer model with a variety of structures used for data modeling. This model is used as a density model for elastic modeling.}}{44}

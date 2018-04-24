@@ -1,0 +1,106 @@
+\section{3-D Numerical Modeling Examples}
+The objective of this paper is to observe if there is any added value of using surface DAS with sparsely sampled, multi-component geophones. In the previous section, we observed that in a long 2-D line, there is added value using DAS to help with the spatial sampling. In 3-D, however, there are many more complications than in 2-D. This section explores additional examples of using DAS in combination with multi-component geophones, but now with the PoroTomo 3-D survey geometry. These examples utilize numerical modeling to understand more about what is recorded.
+
+A velocity model is needed to create data. There are a few velocity models to choose from at Brady's Natural Lab: a 1-D interval velocity model from borehole DAS, a model created from body wave tomography \citep{clifford017properties}, and a model from sweep interferometry \citep{matzelseismic}. Figure~\ref{fig:VelocityComparison} shows a comparison between all these velocity models extracted at Well 56-1A.
+
+\plot{VelocityComparison}{width=.7\textwidth}{Comparison between many velocity models extracted at Well 56-1A.}
+
+There is a lot of uncertainty between these three velocity models due to the method used to create them. Slow velocities disrupt the finite difference stability condition, so the velocity model from \citet{matzelseismic} shown in Figure~\ref{fig:EricModel-Mean} was used for the 3-D modeling.
+
+\plot{EricModel-Mean}{width=\textwidth}{Body wave (P-wave) velocity (m/s) model from sweep interferometry in 3-D perspective \citep{Matzel2017}.}
+
+As in the previous section, a modified version of the conventional elastic FDM code (ewefdm) present in Madagascar \citep{fomel2013madagascar} is utilized, but now for the 3-D case. This allows us to recover both displacement and strain data along receivers in the grid. A variable density is now used to create reflectivity instead of using purely velocity changes to create reflectivity in the 2-D case.
+
+\subsection{3-D Modeling of Non-Uniform DAS Acquisition}
+The wavefield along the fiber is now recorded for the six components of strain (XX, XY, XZ, YY, YZ, and ZZ). Field DAS data with single fiber, however, does not recover all six components. Instead, it only recovers contributions of the wavefield in the direction that it is oriented. We can project the six components from the synthetic data on to the vector direction of the field fiber locations to recover the strain in the direction that the fiber is oriented by using Equation~\ref{eqn:StrainOneComponent},
+
+\begin{equation}
+\begin{bmatrix}
+  \varepsilon_{ZZ} \\
+  \varepsilon_{XX} \\
+  \varepsilon_{YY} \\
+  \varepsilon_{XY} \\
+  \varepsilon_{YZ} \\
+  \varepsilon_{ZX} \\
+\end{bmatrix}
+\begin{bmatrix}
+  V_Z^2 & V_X^2 & V_Y^2 & 2V_XV_Y & 2V_YV_Z & 2V_ZV_X
+\end{bmatrix}
+=
+\begin{bmatrix}
+  \varepsilon'
+\end{bmatrix}
+\label{eqn:StrainOneComponent}
+\end{equation}
+
+where $\varepsilon_{ij}$ is the strain in the direction $ij$, $V_{i}$ is the vector projection in the $i$ direction, and $\varepsilon'$ is the strain in the direction of the fiber.
+
+A matrix of fiber vector directions must be created prior to using Equation~\ref{eqn:StrainOneComponent}. The fiber endpoints were recorded in the field using a handheld GPS device after the fiber was trenched. The virtual receiver locations along the fiber were then interpolated at 1-meter spacing between these endpoints. Although this gives a good estimate of the x and y coordinates of the fiber, this does not give any information on how deep the fiber was trenched. For this reason, we assume that the fiber was all trenched in the same horizontal plane and there are no dips along the fiber. This simplifies Equation~\ref{eqn:StrainOneComponent} to only have contributions from X and Y. We can then create a plot of these vector directions shown in Figure~\ref{fig:VectorDirections}.
+
+\plot{VectorDirections}{width=\textwidth}{PoroTomo DAS survey geometry overlain by the vector direction (red) of the fiber at every location.}
+
+Applying Equation~\ref{eqn:StrainOneComponent} recovers only one value of strain along the fiber. In reality, there are contributions from both X and Y, so the strain matrix should have values at XX, YY, and XY. We can use the adjoint operation to recover a vector projection of the strain value from Equation~\ref{eqn:StrainOneComponent}. The adjoint operation shown in Equation~\ref{eqn:StrainMultiComponent} returns back to the original PoroTomo coordinate system.
+
+\begin{equation}
+  \begin{bmatrix}
+    \varepsilon'
+  \end{bmatrix}
+\begin{bmatrix}
+  V_Z^2 \\ V_X^2 \\ V_Y^2 \\ 2V_XV_Y \\ 2V_YV_Z \\2V_ZV_X
+\end{bmatrix}
+=
+\begin{bmatrix}
+  \varepsilon_{ZZ} \\
+  \varepsilon_{XX} \\
+  \varepsilon_{YY} \\
+  \varepsilon_{XY} \\
+  \varepsilon_{YZ} \\
+  \varepsilon_{ZX} \\
+\end{bmatrix}
+\label{eqn:StrainMultiComponent}
+\end{equation}
+
+The last attribute of fiber that needs to be modeled is the gauge-length. As discussed in Chapter~\ref{cha:FiberAttributes}, the gauge-length of fiber is related to the wavelength recorded along the fiber and it acts as a moving average. The gauge-length in the PoroTomo survey was set at 10-meters, so the modeled data, $d$, is a matrix multiplication of $\frac{1}{10}$ for the gauge length, the spatial sampling 1-meter, and the raw point data, $b$, recorded by the finite difference code (shown in Equation~\ref{eqn:GaugeLength}, modified from Lim Chen Ning and Sava, 2018).
+
+The last attribute of fiber that needs to be modeled is the gauge-length. As discussed in earlier in this paper, the gauge-length of fiber is related to the wavelength recorded along the fiber and it acts as a moving average. The gauge-length in the PoroTomo survey was set at 10-meters, so the modeled data, $d$, is a matrix multiplication of $\frac{1}{10}$ for the gauge length, the spatial sampling 1-meter, and the raw point data, $b$, recorded by the finite difference code (shown in Equation~\ref{eqn:GaugeLength}, after Lim Chen Ning and Sava, 2018).
+
+\setcounter{MaxMatrixCols}{20}
+\begin{equation}
+\begin{bmatrix}
+d_5 \\
+d_6 \\
+d_7 \\
+\vdots \\
+d_{n-5}
+\end{bmatrix}
+=
+\frac{1}{10}
+\begin{bmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 \\
+0 & 0 & 0 & \ddots  & \ddots & \ddots & \ddots & \ddots & \ddots & \ddots & \ddots & \ddots & \ddots & 0\\
+0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+  b_5 \\
+  b_6 \\
+  b_7 \\
+  \vdots \\
+  b_{n-5}
+\end{bmatrix}
+\label{eqn:GaugeLength}
+\end{equation}
+
+The DAS data are now ready to be modeled as they are recorded in the real world after all of the steps described in this section.
+
+\subsection{Numerical Modeling}
+It is important to image the faults in detail at Brady's Natural Lab as they are the driving factors behind the recharge of the geothermal reservoir. Although \citet{siler2013three} would be a good candidate for data modeling, a simpler model is needed to first test the hypothesis of imaging using the two data types simultaneously. A four layer model with a variety of structures is used as the density model for the first example (Figure~\ref{fig:den3D}). There is a contrast of about 300 g/cc between each layer to ensure strong reflections.
+
+\plot{den3D}{width=\textwidth}{Four layer model with a variety of structures used for data modeling. This model is used as a density model for elastic modeling.}
+
+The first step in the synthetic is to generate data. The data is generated from the reflectivity model. The reflectivity in this experiment is caused by the density contrast in the model subsurface. The variable density, elastic FDM operator is used to propagate a wavefield through the reflectivity model from a given source location. The strain data is recorded along the fiber and the displacement data is recorded at the geophones.
+
+The next step is to create a receiver wavefield. The receiver wavefield is conventionally recovered by back propagating the recorded field data. In the case of this numerical experiment, the data that were synthetically generated from a reflectivity model are back propagated. The data are reversed in time, reinjected at all the receiver points, and propagated using the forward elastic operator. Again, two different sources are needed to create the receiver wavefield. An acceleration force source is used for back propagation of the geophone data and a stress tensor source is used for back propagation of the DAS data. There is no current way to explode both sources at the same time in the Madagascar package. Instead, two different receiver wavefields are created for the DAS and geophone data. Now, a source and two receiver wavefields exist. An imaging condition is required to combine the two wavefields.
+
+The 2-D section first discusses the option of using the conventional imaging condition by \citet{claerbout1985imaging} which involves taking the zero-lag, cross correlation at each time step for every experiment. This IC can be extended into 3-D space with the additional y-component of the wavefield. It is difficult to make comparisons with all of the images that come out of the conventional elastic IC. Instead, the energy norm IC is utilized to produce one final image that does not require wavefield separation \citep{rocha2016isotropic}.
