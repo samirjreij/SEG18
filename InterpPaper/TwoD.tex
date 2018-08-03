@@ -1,0 +1,127 @@
+\section{2D Numerical Modeling Examples}
+Imaging the geophone data is a difficult task in the PoroTomo Survey due to the irregular spatial sampling and offset. This paper focuses on identifying a way to resolve the spatial sampling issue. Fortunately, the PoroTomo survey includes surface DAS cable that has 10-meter gauge-length and an equivalent of 1-meter receiver spacing along the fiber. Many papers in the literature are interested in methods to convert DAS measurements (strain or strain rate) to a geophone equivalent (particle velocity or displacement) with the intent to replace point sensors with distributed sensors, or use existing geophone processing to clean up DAS data \citep{daley2013field,daley2015field,jreij2017field}. The idea of using both data types in simultaneous imaging is explored in this paper to produce more detailed images using synthetic examples.
+
+\subsection{2D Synthetic Design}
+\citet{siler2013three} mapped the faults of Brady's Natural Lab shown in Figure~\ref{fig:FaultModelCornerView}. It is important to image these faults in detail as they are driving factors behind the recharge of the geothermal reservoir \citep{feigl2017overview,folsomimaging}. A slice is taken from the Brady's Natural Lab fault model \citep{siler2013three} in the PoroTomo Survey and used as a reflection velocity models. This slice is shown in Figure~\ref{fig:dtestVP}. The \citet{siler2013three} fault model slice is used as a reflectivity model as it contains a variety of structural dips.
+
+% It is important to test the structural dip imaging extremes with new methods to see how they will work in complicated subsurfaces.
+
+\plot{FaultModelCornerView}{width=\textwidth}{\citet{siler2013three} fault density mapping within the PoroTomo Survey box. This model was used as a reflectivity model for the experiments within this section.}
+
+\plot{dtestVP}{width=\textwidth}{Reflectivity model from \citet{siler2013three} extracted at the location of Well 56-A1 used for simulating data. Blue dots represent source locations and the red dots represent geophone locations. DAS fiber was placed between the geophone locations.}
+
+Seismic sources in the PoroTomo experiment are not on a uniform grid. In fact, the source spacing is as large as 150 meters. Seismic illumination describes how much of the subsurface can be imaged given a source-receiver geometry and velocity model. Illumination in seismic surveys is highly influenced by source-receiver spacing. For the purpose of this section, a constant source spacing of 75 meters (which is about the average source spacing in the PoroTomo survey) is used to minimize migration artifact effects from poor illumination. For the 2D experiments present in this paper, both vertical and horizontal force sources are modeled to represent a vertically and a horizontal vibe, respectively, which were also collected at BNL for the PoroTomo field experiment.
+
+Reverse time migration (RTM) is the imaging technique that is used for the experiments in this paper. 2D elastic forward modeling is used to produce strain (as measured by DAS) and displacement (as measured by geophones) data along the surface of our 2D example excited by a vertical force source. Receivers at every one meter across the experiment are used for recording. As seen in Figure~\ref{fig:dasngeophone}, the PoroTomo survey did not include a straight fiber that was this long. It did include, however, a maximum offset of 1,500-meters across the entire survey. A 2D line of 1,500 meters was utilized to gather data with similar offsets as the PoroTomo survey.
+
+The code generated for these experiments outputs both strain and displacement at every receiver location. The average geophone spacing is about 70 meters in the PoroTomo experiment. A geophone spacing of 100 meters is chosen to analyze geophone spacing closer to the extremes of this experiment. The recorded data are generated from a reflectivity model that is derived from Brady's fault model using an elastic finite difference modeling (FDM) operator from the Madagascar package \citep{fomel2013madagascar}. The next step is to back propagate the recorded data from this forward modeling to recover the receiver wavefield. If this was a field experiment, the field data would be back propagated. Two different sources are needed to create the receiver wavefield. An acceleration force is used for back propagation of the geophone data and a stress tensor is used for back propagation of the DAS data. The proper way to do imaging is to back propagate the two data types (strain and displacement) simultaneously, but this was not possible with current codes, so the data are back propagated individually.
+
+The last wavefield that needs to be generated is the source wavefield. The source wavefield is a forward model from the original source location through a smooth velocity model. It is important that the velocity model is smooth as reflections will cause an improper final image. Now, a source and two receiver wavefields exist. An imaging condition is required to combine the wavefields.
+
+Traditionally, the zero-lag, cross correlation imaging condition (IC) is used to create a migrated image \citep{claerbout1985imaging}. Although this methodology may provide a solution for elastic imaging, this IC produces four resulting images (PP, PS, SP, SS). This proves to be a more difficult comparison between different data types for the purpose of this paper. \citet{rocha2016isotropic} describes the use of an energy-norm based IC that exploits wavefield directionality to create a single elastic image that represents the measure of reflected energy. There are many other benefits to using the energy-norm IC, but most important for this work is that one final image allows for an easy comparison of migrated elastic data.
+
+The image produced from the elastic energy norm RTM with sparsely sampled multi-component geophones using a vertical force is shown in Figure~\ref{fig:dtestEIMGS}. This image shows reflectors are discontinuous and difficult to follow. The image is also covered with migration artifacts due to insufficient sampling of the wavefield. An example of this is presented around 800 meters on the x-axis of Figure~\ref{fig:dtestEIMGS}: the migration artifacts make it difficult for an interpreter to follow the shallow reflector. The deeper reflector in Figure~\ref{fig:dtestEIMGS} is impossible to identify.
+
+The image produced from the elastic energy norm RTM with DAS fiber along the surface of the model creating a virtual receiver at every one meter is shown in Figure~\ref{fig:dtestEIMGSDAS}. The shallow reflector in this image is sharp and continuous, allowing for easy interpretation. Although migration artifacts are still present around 800 meters on the x-axis, these are different from those experienced in Figure~\ref{fig:dtestEIMGS}. These migration artifacts are now due to fake modes present because the wavefield is extrapolated using only the x-component data that was recorded with DAS fiber.
+
+Now there are two images with two different migration artifacts (i.e. types of noise). Stacking the images should theoretically reduce the noise and highlight the reflection events. Linearly stacking the events, however, will not currently work as the amplitudes are on different scales. Instead, the amplitudes of both images are normalized by the maximum and then stacked to produce Figure~\ref{fig:dtestTot}. Although Figure~\ref{fig:dtestTot} still has artifacts in it, the reflectors are enhanced and the image is easier to interpret than Figure~\ref{fig:dtestEIMGS} or Figure~\ref{fig:dtestEIMGSDAS}.
+
+\multiplot{3}{dtestEIMGS,dtestEIMGSDAS,dtestTot}{width=.47\textwidth}{(a) Resulting image from migrating geophone synthetic data. (b) Resulting image from migrating DAS synthetic data. (c) Combined image from migrating DAS and geophone synthetic data.}
+
+Fiber attributes were discussed earlier in this paper. Different source types can generate different polarizations of reflection events. For this reason, the second 2D experiment uses the same geometry and model as the first experiment, but now an horizontal force is used to generate data. The image produced from elastic energy norm RTM with sparsely sampled multi-component geophones and a horizontal force is shown in Figure~\ref{fig:SSourceeimgs}. This image still shows some discontinuity in reflectors, but the reflector is much easier to follow. The receiver sampling was not changed, so the image is still covered with migration artifacts due to insufficient sampling of the wavefield. On the left-hand side of the geophone image, the end of the dipping fault is not properly imaged. This is due to insufficient aperture in the migration. The deeper reflector is now easier to identify in Figure~\ref{fig:SSourceeimgs}.
+
+The image produced from elastic energy norm RTM with DAS data and an S-source is shown in Figure~\ref{fig:SSourceeimgsdas}. The DAS image is still very sharp, but now the migration artifacts have diminished. The deeper reflector is much easier to observe and interpret as well. This image is sharp because the zero-offset SV-wave reflections are perfectly polarized to show the reflectors on DAS and \sout{the DAS data is really well sampled} \hl{the DAS data are sampling the Earth response well}.
+
+There are two images with two different migration artifacts (i.e. types of noise), so the images are normalized and stacked just as it was done for the previous example. The results are shown in Figure~\ref{fig:SSource2Tot}. Figure~\ref{fig:SSource2Tot} shows both reflectors clearer than Figure~\ref{fig:dtestTot} which suggests that a horizontal force is more beneficial for near-offset DAS surveys.
+
+
+\multiplot{3}{SSourceeimgs,SSourceeimgsdas,SSource2Tot}{width=.47\textwidth}{(a) Resulting image from migrating geophone synthetic data. (b) Resulting image from migrating DAS synthetic data. (c) Combined image from migrating DAS and geophone synthetic data.}
+
+\subsection{Value of Information}
+All of the experiments presented in the paper can be qualitatively analyzed and discussed, but qualitative analysis is always different between people due to different biases and perspectives. A method to quantitatively analyze the experiments is needed to do effective comparisons.
+
+The Value of Information (VOI) is a quantitative tool that originates from the field of decision analysis to quantify how relevant and reliable an information source is \citep{trainor2013value}. VOI estimates the possible increase in expected utility by gathering information. It is calculated by comparing the prior value ($V_{prior}$, the average utility of a decision made with current information) to the value with imperfect information ($V_{imperfect}$) by subtracting the two, shown in  Equation~\ref{eqn:VOI}.
+
+\begin{equation}
+  VOI=V_{imperfect}-V_{prior}
+\label{eqn:VOI}
+\end{equation}
+
+The goal of this project is to observe if there is any added value to using distributed acoustic sensing in surface acquisitions. The value with imperfect information shown in Equation~\ref{eqn:Vimperfect} can only be calculated with a quantitative measure of how accurate the information source as,
+
+\begin{equation}
+V_{imperfect} = \sum_{j=F,NF} Pr(\theta^{int}=\theta_j)  {\max_a [\sum_{i=F,NF} Pr(\theta=\theta_i | \theta^{int}=\theta_j)v_a(\theta_i)]}
+\label{eqn:Vimperfect}
+\end{equation}
+
+This quantitative measure can be represented by the posterior probability, $Pr(\theta=\theta_i | \theta^{int}=\theta_j)$, within the value with imperfect information (Equation \ref{eqn:Vimperfect}). Specifically for these problems, the posterior probability can be how often interpretations of faults align with the actual presence of faults. It is important to calculate the posterior reliability so the value of imperfect information can be completed. The posterior probability can be calculated using Equation~\ref{eqn:Posterior},
+
+\begin{equation}
+  Pr(\theta=\theta_i | \theta^{int}=\theta_j)=\frac{(Pr(\theta=\theta_i)) Pr(\theta^{int}=\theta_j | \theta=\theta_i)}{Pr(\theta^{int}=\theta_i)}; \forall i,j={F, NF}
+\label{eqn:Posterior}
+\end{equation}
+
+\noindent
+where $\theta$ represents a true value of Fault or Not Fault, $\theta^{int}$ represents an interpreted Fault or Not Fault. There are a variety of methodologies to produce information about whether an interpreted fault is actually a fault or not. This paper utilizes a machine learning approach to interpret the features in the migrated image.
+
+\subsection{Convolutional Neural Network Analysis}
+Machine learning is a field within computer science that focuses on the ability of computer systems to learn patterns within data without being explicity programmed for these patterns \citep{samuel1959some}. Machine learning has had a large boom in the geophysics industry within the last 10 years.
+
+% The reasons for this are quite apparent: geophysicist work with large amounts of data, the geophysics field needs more quantitative analysis rather than qualitative, and machines are much better at identifying weak or high-dimensional patterns than humans are.
+
+There are a variety of machine learning algorithms that can be utilized based on the problem that needs to be solved. One of the most powerful machine learning algorithms is the neural network. Neural networks are inspired by the biological neural networks that constitute human brains or at least how humans perceive they work \citep{Gerven2018}. They consist of many layers in parallel and every layer consists of a number of nodes. All neural networks consists of at least two layers: the input layer and output layer. All the extra layers in between the input and output layers are the hidden layers. The nodes of every layer are like neurons in the brain. Every neuron has its own activation function that determines whether it should be ``fired" or not similar to how a neuron in the brain behaves. Each layer receives the output from the previous layer based on if the previous neuron is fired or not.
+
+Convolutional Neural Networks (CNN) in particular are at the core of most state-of-the-art computer vision solutions for a wide variety of tasks. One of the most accurate CNN image classifiers is the Inception-v3 model \citep{Szegedy2015}. The original Inception-v3 model is trained and tested on the 2012 ImageNet Large Scale Visual Recognition Challenge \citep{ILSVRC15}. The training dataset consisted of 10,000,000 labeled images that depicted 1,000 object categories. The Inception-v3 model was able to perform with 3.5\% top-5 error, meaning that the target label is within the top-5 probability classifications that the algorithm produced. A top-5 error of 3.5\% means the Inception-v3 model is able to perform with high accuracy, making it a top contender for a geophysics image classification problem.
+
+The Inception-v3 model utilizes transfer learning which means it stores knowledge gained from training on the ImageNet dataset and then applies it to a different but related problem. It is difficult to train a CNN from scratch because a large dataset is needed with a substantial amount of computers equipped with GPU's. Instead, the intermediate layers of the Inception-v3 model are used as they are already trained on detecting edges, shapes, and other high level features. The weights of the model's last layer are recreated to identify if an image is either a fault or not a fault.
+
+% Figure~\ref{fig:Inceptionv3A} shows the architecture of one module in the Inception v3 model. The full architecture has a large amount of modules similar to the one shown in Figure~\ref{fig:Inceptionv3A} that decompose the image into smaller subsets and apply different filters. Some of these subsets can be as small as one pixel by one pixel, while others are as large as the image size.
+
+% \plot{Inceptionv3A}{width=\textwidth}{Inception v3 model architecture for one module modified from \citet{Szegedy2015}. This specific module performs filters on three pixel by three pixel as well as one pixel by one pixel subsets of the original image. In parallel to these filters is a pooling layer that performs an operation such as an average of all cells in subsets of the image.}
+%
+% Within each image, there are a variety of features that contribute to the final classification. It is not feasible for the algorithm to identify these features using pixel by pixel methodologies. Instead, pooling allows for a smaller subset of the image to be analyzed for a certain statistic such as mean, maximum, or minimum. Strides in the convolutional neural network world are how much the filter that the network is applying is shifted. After learning a certain portion of the image, the network must perform a stride to get to the next location. These strides are important when analyzing a variety of images as they dictate the search area. Convolutional layers perform filtering operations on the image or combine two images that have been filtered previously. One way to apply convolution is in the sense of an edge detector: the original image is convolved with a kernel matrix that represents an edge filter. Inception-v3 utilizes convolutional layers like the edge filter to identify patterns within images.
+
+The Inception v3 model's ability to identify features can be leveraged within the geophysics realm. The first step is to create some training data to retrain the model. The objective is to see if DAS helped identify more faults than a sparse array of multi-component geophones. For the experiments in this chapter, RTM images are created from 2D reflectivity slices of the \citet{siler2013three} fault model. There are about 500 other slices along both the X and Y axis of the PoroTomo grid. A number of these slices can be migrated to create training data for identifying faults.
+
+The next step is to take spatial windows of the migrated images and label them based on if there are faults or not within the image. 100 meter by 100 meter (10 grid cell by 10 grid cell) subsets of the migrated images were created. There are a large amount of data present and individually picking whether an image contains a fault or not would be time consuming. As stated earlier, the true fault model exists to compare with the migrated images. The same subset of the migrated images can be compared with the reflectivity model. If more than half the pixels are a fault, then the program labels the training data as a fault (Figure~\ref{fig:HorizonExamples}). Otherwise, the program labels the training data as not a fault (Figure~\ref{fig:NotHorizonExamples}).
+
+\multiplot{2}{HorizonExamples,NotHorizonExamples}{width=.6\textwidth}{(a) Examples of the automatically generated faults images used to train the CNN. (b) Examples of the automatically generated images that were not faults used to train the CNN.}
+
+This is an easy and automatic way to generate training data, but training is an essential step prior to testing, so it needs to be continually improved. The next step is to QC the training data to make sure that the examples are actually of ``faults" and ``not faults". Many iterations are required until an acceptable cross-validation accuracy is achieved. A total of 2500, 100 meter by 100 meter windowed RTM images were used to train the CNN to detect faults. A final training validation accuracy of 94.4\% is achieved. This is an acceptable accuracy check and now the neural network is ready to be tested on data that were not included in the training data.
+
+\sout{A} 100 meter by 100 meter testing data \sout{is} \hl{are} created the same way the training data \sout{is} \hl{are} created. The testing data \sout{is} \hl{are} kept hidden from the training data. The first RTM image that is used for testing is the vertical source data from the velocity model shown in Figure~\ref{fig:dtestVP}. The first test is on the sparse, multi-component geophone image (Figure~\ref{fig:dtestEIMGS}). The RTM image is decomposed into 3,625 (100 meter x 100 meter) images with labels of ``Faults" and ``Not Faults". This same process is used for the synthetic created from DAS and multi-component geophones.
+
+
+% A confusion matrix is then calculated by evaluating the predictions to the actual fault or no fault classifications of the test data. This same process is used for the synthetic created from DAS and multi-component geophones.
+
+% The results of these experiments are shown in Table~\ref{table:CNNResults-dtest}.
+%
+% \begin{table}[]
+% \centering
+% \caption{Confusion matrices for CNN created from the geophones (Figure~\ref{fig:dtestEIMGS}) and both data types together (Figure~\ref{fig:dtestTot}) using a vertical force source.}
+% \label{table:CNNResults-dtest}
+% \setlength{\tabcolsep}{1em}
+% \begin{tabular}{|l|l|l|ll|l|l|l|}
+%   \multicolumn{3}{c}{Multicomponent Geophone} & \multicolumn{2}{c}{ } &\multicolumn{3}{c}{DAS \& Geophone}\\
+%   \hline
+%   & $\theta_F^{int}$ & $\theta_{NF}^{int}$ & & & &$\theta_F^{int}$ & $\theta_{NF}^{int}$ \\
+% \hline
+% $\theta_F$  & 292 & 1008 & & & $\theta_F$   & 420 & 1870\\
+% \hline
+% $\theta_{NF}$ & 327 & 1998 & & & $\theta_{NF}$ & 199 & 1176 \\
+% \hline
+% \end{tabular}
+% \end{table}
+
+A posterior reliability of information can be calculated with the results from the testing data. The resulting posterior reliability of information is shown graphically in Figure~\ref{fig:POSTERIORS-vsource} and Figure~\ref{fig:POSTERIORS-hsource} for a vertical force and a horizontal force, respectively.
+
+\multiplot{2}{POSTERIORS-vsource,POSTERIORS-hsource}{width=\textwidth}{Posterior reliability of information from CNN's calculated using Equation~\ref{eqn:Posterior} using (a) a vertical force and (b) a horizontal force. The objective is to maximize the percentages of true positives and negatives (green arrows) while minimizing the percentages of false positives and negatives (red arrows). This is obtained by having better instruments as well as better classification.}
+
+The results from Figure~\ref{fig:POSTERIORS-vsource} for the vertical source show that adding DAS into the sparse array of geophones with Figure~\ref{fig:dtestVP} as the velocity model improves the classification of faults by 20\%. However, there is an increase in false negatives by about 30\%. This means either the normalized, stacked image has many artifacts or the classifier needs to be better trained on what is not a fault. The number of false positives decreases by 20\% which is a substantial amount. Lastly, the number of true negatives decreases by almost 30\%. This confirms that the classifier needs to be better trained on what is not a fault.
+
+The results from Figure~\ref{fig:POSTERIORS-hsource} for the horizontal source show that adding DAS into the sparse array of geophones with Figure~\ref{fig:dtestVP} as the velocity model decreases the classification of faults by about 1\%. However, the classification of true negatives increases by about 5\% and false negatives decreases by about 5\% meaning the DAS data did add some value to the CNN classification.
+
+% The CNN classifier does a much better job at classifying an image than energy norm filter. The false positives and false negatives will decrease with more training iterations especially in training the classifier on images that are not faults.
+
+\subsection{2D Summary}
+This section discussed in great detail how 2D DAS data can be modeled. It also showed how a long offset, 2D surface DAS line can produce a sharp resulting image. A quantitative analysis using a machine learning methodology showed that DAS does add value to sparse geophone arrays. A quantitative analysis also shows that using a horizontal force with DAS allows for sharper images. These hypotheses must now be confirmed with a 3D acquisition.

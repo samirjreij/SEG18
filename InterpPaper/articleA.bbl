@@ -1,0 +1,153 @@
+\begin{thebibliography}{}
+\itemsep0pt
+
+\bibitem[Aki and Richards, 1980]{aki1980quantative}
+Aki, K., and P.~G. Richards,  1980, Quantative seismology: Theory and methods:
+  New York, {\bf 801}.
+
+\bibitem[Barberan et~al., 2012]{barberan2012multi}
+Barberan, C., C. Allanic, D. Avila, J. Hy-Billiot, A. Hartog, B. Frignet, and
+  G. Lees,  2012, Multi-offset seismic acquisition using optical fiber behind
+  tubing: Presented at the 74th EAGE Conference and Exhibition incorporating
+  EUROPEC 2012.
+
+\bibitem[Cardiff et~al., 2018]{cardiff2018geothermal}
+Cardiff, M., D.~D. Lim, J.~R. Patterson, J. Akerley, P. Spielman, J. Lopeman,
+  P. Walsh, A. Singh, W. Foxall, H.~F. Wang, et~al.,  2018, Geothermal
+  production and reduced seismicity: Correlation and proposed mechanism: Earth
+  and Planetary Science Letters, {\bf 482}, 470--477.
+
+\bibitem[Claerbout, 1985]{claerbout1985imaging}
+Claerbout, J.~F.,  1985, Imaging the earth's interior: Blackwell scientific
+  publications Oxford, {\bf 1}.
+
+\bibitem[Clarke and Sandberg, 1983]{clarke1983fiber}
+Clarke, R., and C.~L. Sandberg,  1983, Fiber optic temperature sensing.
+\newblock (US Patent 4,417,782).
+
+\bibitem[Cox et~al., 2012]{cox2012distributed}
+Cox, B., P. Wills, D. Kiyashchenko, J. Mestayer, J. Lopez, S. Bourne, R.
+  Lupton, G. Solano, N. Henderson, D. Hill, et~al.,  2012, Distributed acoustic
+  sensing for geophysical measurement, monitoring and verification: {\bf 37},
+  7--13.
+
+\bibitem[Daley et~al., 2015]{daley2015field}
+Daley, T., D. Miller, K. Dodds, P. Cook, and B. Freifeld,  2015, Field testing
+  of modular borehole monitoring with simultaneous distributed acoustic sensing
+  and geophone vertical seismic profiles at citronelle, alabama: Geophysical
+  Prospecting.
+
+\bibitem[Daley et~al., 2013]{daley2013field}
+Daley, T.~M., B.~M. Freifeld, J. Ajo-Franklin, S. Dou, R. Pevzner, V.
+  Shulakova, S. Kashikar, D.~E. Miller, J. Goetz, J. Henninges, et~al.,  2013,
+  Field testing of fiber-optic distributed acoustic sensing (das) for
+  subsurface seismic monitoring: The Leading Edge, {\bf 32}, 699--706.
+
+\bibitem[Feigl, 2017]{feigl2017overview}
+Feigl, K.~L.,  2017, Overview and preliminary results from the porotomo project
+  at brady hot springs, nevada: Poroelastic tomography by adjoint inverse
+  modeling of data from seismology, geodesy, and hydrology: Presented at the
+  Stanford Geothermal Workshop.
+
+\bibitem[Folsom et~al., 2018]{folsomimaging}
+Folsom, M., J. Lopeman, D. Perkin, and M. Sophy,  2018, Imaging shallow outflow
+  alteration to locate productive faults in ormat’s brady’s and desert peak
+  fields using csamt.
+
+\bibitem[Fomel et~al., 2013]{fomel2013madagascar}
+Fomel, S., P. Sava, I. Vlad, Y. Liu, and V. Bashkardin,  2013, Madagascar:
+  Open-source software project for multidimensional data analysis and
+  reproducible computational experiments: Journal of Open Research Software,
+  {\bf 1}.
+
+\bibitem[Gerven and Bohte, 2018]{Gerven2018}
+Gerven, M.~V., and S. Bohte,  2018, {Artificial Neural Networks as Models of
+  Neural Information Processing}.
+
+\bibitem[Hornman, 2017]{hornman2017field}
+Hornman, J.,  2017, Field trial of seismic recording using distributed acoustic
+  sensing with broadside sensitive fibre-optic cables: Geophysical Prospecting,
+  {\bf 65}, 35--46.
+
+\bibitem[Hornman et~al., 2013]{hornman2013field}
+Hornman, K., B. Kuvshinov, P. Zwartjes, and A. Franzen,  2013, Field trial of a
+  broadside-sensitive distributed acoustic sensing cable for surface seismic:
+  Presented at the 75th EAGE Conference \& Exhibition incorporating SPE EUROPEC
+  2013.
+
+\bibitem[Jreij et~al., 2017]{jreij2017field}
+Jreij, S., W. Trainor-Guitton, D. Miller, et~al.,  2017, Field data comparison
+  of 3d horizontal distributed acoustic sensing and geophones: SEG Technical
+  Program Expanded Abstracts.
+
+\bibitem[Krohn et~al., 2000]{krohn2000fiber}
+Krohn, D.~A., T. MacDougall, and A. Mendez,  2000, Fiber optic sensors:
+  fundamentals and applications: Isa.
+
+\bibitem[Lindsey et~al., 2017]{lindsey2017fiber}
+Lindsey, N.~J., E.~R. Martin, D.~S. Dreger, B. Freifeld, S. Cole, S.~R. James,
+  B.~L. Biondi, and J.~B. Ajo-Franklin,  2017, Fiber-optic network observations
+  of earthquake wavefields: Geophysical Research Letters.
+
+\bibitem[Mateeva et~al., 2013]{mateeva2013distributed}
+Mateeva, A., J. Lopez, J. Mestayer, P. Wills, B. Cox, D. Kiyashchenko, Z. Yang,
+  W. Berlang, R. Detomo, and S. Grandi,  2013, Distributed acoustic sensing for
+  reservoir monitoring with vsp: The Leading Edge, {\bf 32}, 1278--1283.
+
+\bibitem[Mateeva et~al., 2014]{mateeva2014distributed}
+Mateeva, A., J. Lopez, H. Potters, J. Mestayer, B. Cox, D. Kiyashchenko, P.
+  Wills, S. Grandi, K. Hornman, B. Kuvshinov, et~al.,  2014, Distributed
+  acoustic sensing for reservoir monitoring with vertical seismic profiling:
+  Geophysical Prospecting, {\bf 62}, 679--692.
+
+\bibitem[Matzel et~al., 2017a]{matzelseismic}
+Matzel, E., X. Zeng, C. Thurber, Y. Luo, C. Morency, et~al.,  2017a, Seismic
+  interferometry using the dense array at the brady geothermal field.
+
+\bibitem[Matzel et~al., 2017b]{Matzel2017}
+Matzel, E.~M., X. Zeng, C. Thurber, and C. Morency,  2017b, {Using Virtual
+  Earthquakes to Characterize the Material Properties of the Brady Hot Springs
+  , Nevada}: Geothermal Resources Council.
+
+\bibitem[Mestayer et~al., 2011]{mestayer2011field}
+Mestayer, J., B. Cox, P. Wills, D. Kiyashchenko, J. Lopez, M. Costello, S.
+  Bourne, G. Ugueto, R. Lupton, G. Solano, et~al.,  2011, Field trials of
+  distributed acoustic sensing for geophysical monitoring, {\it in} SEG
+  Technical Program Expanded Abstracts 2011: Society of Exploration
+  Geophysicists,  4253--4257.
+
+\bibitem[Parker et~al., 2014]{Parker2014}
+Parker, T., S. Shatalin, and M. Farhadiroushan,  2014, {Distributed Acoustic
+  Sensing - A new tool for seismic applications}: First Break, {\bf 32},
+  61--69.
+
+\bibitem[Rocha et~al., 2016]{rocha2016isotropic}
+Rocha, D., N. Tanushev, and P. Sava,  2016, Isotropic elastic wavefield imaging
+  using the energy norm: Geophysics, {\bf 81}, S207--S219.
+
+\bibitem[Russakovsky et~al., 2015]{ILSVRC15}
+Russakovsky, O., J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A.
+  Karpathy, A. Khosla, M. Bernstein, A.~C. Berg, and L. Fei-Fei,  2015,
+  {ImageNet Large Scale Visual Recognition Challenge}: International Journal of
+  Computer Vision (IJCV), {\bf 115}, 211--252.
+
+\bibitem[Samuel, 1959]{samuel1959some}
+Samuel, A.~L.,  1959, Some studies in machine learning using the game of
+  checkers: IBM Journal of research and development, {\bf 3}, 210--229.
+
+\bibitem[Siler and Faulds, 2013]{siler2013three}
+Siler, D.~L., and J.~E. Faulds,  2013, Three-dimensional geothermal fairway
+  mapping: Examples from the western great basin, usa,: GRC Transactions, {\bf
+  7}, 327--332.
+
+\bibitem[Szegedy et~al., 2015]{Szegedy2015}
+Szegedy, C., V. Vanhoucke, S. Ioffe, J. Shlens, and Z. Wojna,  2015,
+  {Rethinking the Inception Architecture for Computer Vision}.
+
+\bibitem[Trainor-Guitton et~al., 2013]{trainor2013value}
+Trainor-Guitton, W.~J., A. Ramirez, X. Yang, K. Mansoor, Y. Sun, and S.
+  Carroll,  2013, Value of information methodology for assessing the ability of
+  electrical resistivity to detect co2/brine leakage into a shallow aquifer:
+  International Journal of Greenhouse Gas Control, {\bf 18}, 101--113.
+
+\end{thebibliography}

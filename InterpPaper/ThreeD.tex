@@ -1,0 +1,186 @@
+\section{3D Numerical Modeling Examples}
+The objective of this paper is to observe if there is any added value of using surface DAS with sparsely \sout{sampled} \hl{arranged}, multi-component geophones. In the previous section, we observed that in a long 2D line, there is added value using DAS to help with the spatial sampling. In 3D, however, there are many more complications than in 2D. This section explores additional examples of using DAS in combination with multi-component geophones, but now with the PoroTomo 3D survey geometry. These examples utilize numerical modeling to understand more about what is recorded.
+
+A velocity model from sweep interferometry shown in Figure~\ref{fig:EricModel-Mean} was used to create data \citep{matzelseismic}. As in the previous section, a modified version of the conventional elastic FDM code (ewefdm) present in Madagascar \citep{fomel2013madagascar} is utilized, but now for the 3D case. This allows us to recover both displacement and strain data along receivers in the grid. A variable density is now used to create reflectivity instead of using purely velocity changes to create reflectivity in the 2D case.
+
+\plot{EricModel-Mean}{width=\textwidth}{Body wave (P-wave) velocity (m/s) model from sweep interferometry in 3D perspective \citep{Matzel2017}.}
+
+
+\subsection{3D Modeling of Non-Uniform DAS Acquisition}
+The wavefield along the fiber is now recorded for the six components of strain (XX, XY, XZ, YY, YZ, and ZZ). Field DAS data with single fiber, however, does not recover all six components. Instead, it only recovers contributions of the wavefield in the direction that it is oriented. We can project the six components from the synthetic data on to the vector direction of the field fiber locations to recover the strain in the direction that the fiber is oriented by using Equation~\ref{eqn:StrainOneComponent},
+
+\begin{equation}
+\begin{bmatrix}
+  \varepsilon_{ZZ} \\
+  \varepsilon_{XX} \\
+  \varepsilon_{YY} \\
+  \varepsilon_{XY} \\
+  \varepsilon_{YZ} \\
+  \varepsilon_{ZX} \\
+\end{bmatrix}
+\begin{bmatrix}
+  V_Z^2 & V_X^2 & V_Y^2 & 2V_XV_Y & 2V_YV_Z & 2V_ZV_X
+\end{bmatrix}
+=
+\begin{bmatrix}
+  \varepsilon'
+\end{bmatrix}
+\label{eqn:StrainOneComponent}
+\end{equation}
+
+where $\varepsilon_{ij}$ is the strain in the direction $ij$, $V_{i}$ is the vector projection in the $i$ direction, and $\varepsilon'$ is the strain in the direction of the fiber.
+
+A matrix of fiber vector directions must be created prior to using Equation~\ref{eqn:StrainOneComponent}. The fiber endpoints were recorded in the field using a handheld GPS device after the fiber was trenched. The virtual receiver locations along the fiber were then interpolated at 1-meter spacing between these endpoints. Although this gives a good estimate of the x and y coordinates of the fiber, this does not give any information on how deep the fiber was trenched. For this reason, we assume that the fiber was all trenched in the same horizontal plane and there are no dips along the fiber. This simplifies Equation~\ref{eqn:StrainOneComponent} to only have contributions from X and Y.
+
+Applying Equation~\ref{eqn:StrainOneComponent} recovers only one value of strain along the fiber. In reality, there are contributions from both X and Y, so the strain matrix should have values at XX, YY, and XY. We can use the adjoint operation to recover a vector projection of the strain value from Equation~\ref{eqn:StrainOneComponent}. The adjoint operation shown in Equation~\ref{eqn:StrainMultiComponent} returns back to the original PoroTomo coordinate system.
+
+\begin{equation}
+  \begin{bmatrix}
+    \varepsilon'
+  \end{bmatrix}
+\begin{bmatrix}
+  V_Z^2 \\ V_X^2 \\ V_Y^2 \\ 2V_XV_Y \\ 2V_YV_Z \\2V_ZV_X
+\end{bmatrix}
+=
+\begin{bmatrix}
+  \varepsilon_{ZZ} \\
+  \varepsilon_{XX} \\
+  \varepsilon_{YY} \\
+  \varepsilon_{XY} \\
+  \varepsilon_{YZ} \\
+  \varepsilon_{ZX} \\
+\end{bmatrix}
+\label{eqn:StrainMultiComponent}
+\end{equation}
+
+
+The last attribute of fiber that needs to be modeled is the gauge-length. As discussed earlier in this paper, the gauge-length of fiber is related to the wavelength recorded along the fiber and it acts as a moving average. The gauge-length in the PoroTomo survey was set at 10-meters, so the modeled data, $d$, is a matrix multiplication of $\frac{1}{10}$ for the gauge length, the spatial sampling 1-meter, and the raw point data, $b$, recorded by the finite difference code (shown in Equation~\ref{eqn:GaugeLength}, after Lim Chen Ning and Sava, 2018).
+
+\setcounter{MaxMatrixCols}{20}
+\begin{equation}
+\begin{bmatrix}
+d_5 \\
+d_6 \\
+d_7 \\
+\vdots \\
+d_{n-5}
+\end{bmatrix}
+=
+\frac{1}{10}
+\begin{bmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 \\
+0 & 0 & 0 & \ddots  & \ddots & \ddots & \ddots & \ddots & \ddots & \ddots & \ddots & \ddots & \ddots & 0\\
+0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+  b_5 \\
+  b_6 \\
+  b_7 \\
+  \vdots \\
+  b_{n-5}
+\end{bmatrix}
+\label{eqn:GaugeLength}
+\end{equation}
+
+% The DAS data are now ready to be modeled as they are recorded in the field after all of the steps described in this section.
+
+\subsection{Numerical Modeling}
+It is important to image the faults in detail at Brady's Natural Lab as they are the driving factors behind the recharge of the geothermal reservoir. Although \citet{siler2013three} would be a good candidate for data modeling, a simpler model is needed to first test the hypothesis of imaging using the two data types simultaneously. A four layer model with a variety of structures is used as the density model for the first example (Figure~\ref{fig:den3D}). There is a contrast of about 300 g/cc between each layer to ensure strong reflections.
+
+\plot{den3D}{width=\textwidth}{Four layer model with a variety of structures used for data modeling. This model is used as a density model for elastic modeling.}
+%
+% The first step for this synthetic experiment is to generate data. The data is generated from the reflectivity model. The reflectivity in this experiment is caused by the density contrast in the model subsurface. The variable density, elastic FDM operator is used to propagate a wavefield through the reflectivity model from a given source location. The strain data is recorded along the fiber and the displacement data is recorded at the geophones.
+%
+% The next step is to create a receiver wavefield. The receiver wavefield is conventionally recovered by back propagating the recorded field data. In the case of this numerical experiment, the data that were synthetically generated from a reflectivity model are back propagated. The data are reversed in time, reinjected at all the receiver points, and propagated using the forward elastic operator. Again, two different sources are needed to create the receiver wavefield. An acceleration force source is used for back propagation of the geophone data and a stress tensor source is used for back propagation of the DAS data. There is no current way to create both sources at the same time in the Madagascar package. Instead, two different receiver wavefields are created for the DAS and geophone data. Now, a source and two receiver wavefields exist. An imaging condition is required to combine the two wavefields.
+%
+% The 2D section first discusses the option of using the conventional imaging condition by \citet{claerbout1985imaging} which involves taking the zero-lag, cross correlation at each time step for every experiment. This IC can be extended into 3D space with the additional y-component of the wavefield. It is difficult to make comparisons with all of the images that come out of the conventional elastic IC. Instead, the energy norm IC is utilized to produce one final image as discussed in the 2D numerical modeling section \citep{rocha2016isotropic}.
+
+The synthetic images are produced using the same methodology presented in the 2D section. The results from migrating the DAS data are shown in Figure~\ref{fig:DasRTM-3Dacq}. The results from migrating the geophone data are shown in Figure~\ref{fig:GeophoneRTM-3Dacq}. A visual reflectivity model shown on the left of both figures was produced by applying the Laplacian operator on Figure~\ref{fig:den3D} and setting all values to one.
+
+\plot{DasRTM-3Dacq}{width=\textwidth}{Results of migrating the reflectivity model (Figure~\ref{fig:den3D}) using the PoroTomo DAS acquisition shown on the right. The true reflectivity model is overlain and shown on the left. The slices on each side are taken at the yellow cross shown on the map view of the acquisition. }
+
+\plot{GeophoneRTM-3Dacq}{width=\textwidth}{Results of migrating the reflectivity model (Figure~\ref{fig:den3D}) using the PoroTomo geophone acquisition shown on the right. The true reflectivity model is overlain and shown on the left. The slices on each side are taken at the yellow cross shown on the map view of the acquisition. }
+
+At first glance, it seems as if the DAS image does not have any reflectors. It can be compared to the true reflectivity model shown on the right of Figure~\ref{fig:DasRTM-3Dacq} to identify the \sout{signal} \hl{true horizons} in the image. It is clear that the data recorded by the DAS fiber is too low in frequency to resolve the beds within the image. This is due to both the velocity field that the experiment used to mimic the PoroTomo subsurface and the FDM accuracy condition presented in Equation~\ref{eqn:accuracy3D}.
+
+\begin{equation}
+  \frac{v_{min}}{f_{max}} > N * \sqrt{dx^2+dy^2+dz^2}
+\label{eqn:accuracy3D}
+\end{equation}
+
+The minimum velocity of approximately 950 m/s from the input velocity field forces the maximum frequency of the wavelet to be 16 Hz and the peak frequency of the wavelet to be 12 Hz. This equates to a 12 Hz wavelet and the velocity model corresponds to a wavelength of about 108 meters.
+
+The DAS image (Figure~\ref{fig:DasRTM-3Dacq}) is also contaminated by fake modes and migration artifacts \citep{rocha2016isotropic}. Fake modes are expected since the displacement field is incomplete when wavefield extrapolation was performed as the fiber is only recording one component of strain in the direction that it is oriented. An inexperienced interpreter would eagerly interpret the fake modes as an area of interest for further exploration methods.
+
+At first glance, the geophone data also appear to have no clear reflection events. The image can again be compared to the true reflectivity model overlain on the left of Figure~\ref{fig:GeophoneRTM-3Dacq} to identify the \sout{signal} \hl{true horizons} in the image. The geophone image is also limited by the source wavelet that was injected into the model. Differentiation between the thin beds is not possible using the source wavelet in this experiment.
+
+The geophone image, similar to the DAS image, is also contaminated by migration artifacts. These migration artifacts, however, are due to the insufficient sampling that creates migration artifacts on the edge of reflectors. The wavefield is not sampled completely because the geophones adopted from the PoroTomo survey are placed sparsely around the model (the average geophone spacing is about 80 meters).
+
+\subsection{Quantitative Image Comparison}
+In 2D, a machine learning methodology was used to create a quantitative image comparison. Although 3D CNN's exist, they are not as polished and readily available as are 2D CNN's. Instead, the data are quantitatively analyzed using energy norm image filtering. Energy norm filtering focuses on highlighting areas with reflected energy is maximum, so filtering the image based on an applied limit will highlight where reflections may be coming from as opposed to migration artifacts. The geophone and DAS images are combined by first normalizing the data types based on their maximum amplitude. They are then stacked together to test this hypothesis. This image would ideally highlight continuous reflectors with the densely sampled DAS data and reduce migration artifacts by extrapolating the full displacement wavefield with the multi-component geophones.
+
+Every model cell that is above an applied limit is assigned a value of 1 and every model box that is below the limit is assigned a value of 0. A cell-by-cell comparison between the filtered, multi-component geophone image and the original reflectivity model is performed to identify how much additional accuracy is gained by adding the DAS data. The results of this cell-by-cell comparison are presented in confusion matrix form (Table~\ref{table:3dCONF}), where $R$ represents reflections and $NR$ represents not reflections.
+
+% The term $\theta_R$ denotes that an actual reflector exists and the term $\theta_{NR}$ denotes that no reflector exists.
+
+% The terms $\theta_R^{int}$ and $\theta_{NR}^{int}$ represent the interpretations of reflector and no reflector, respectively, based on energy filtering of images. The columns of the confusion matrix represent predicted classifications ($\theta_R^{int}$ and $\theta_{NR}^{int}$). The rows of the confusion matrix represent actual true statement of the subsurface ($\theta_R$ and $\theta_{NR}$).
+
+\begin{table}[]
+\centering
+\caption{Confusion matrix for top 90\% energy reflected.}
+\label{table:3dCONF}
+\setlength{\tabcolsep}{1em}
+\begin{tabular}{|c|c|c|}
+ \multicolumn{3}{c}{Top 90\% energy reflected} \\
+  \hline
+ & $\theta_R^{int}$ & $\theta_{NR}^{int}$ \\
+            \hline
+ $\theta_R$ & 184800 & 1206000  \\
+\hline
+$\theta_{NR}$ & 346700 & 1824000 \\
+\hline
+\end{tabular}
+\end{table}
+
+The confusion matrices assist in calculating the posterior value using Equation~\ref{eqn:Posterior}. The posterior value explains the probability that an event which the data type predicted is the event present. The posterior can then be used to calculate the utility or value of information added when using DAS and geophone versus only geophone with Equation~\ref{eqn:VOI}. The results for the medium filter, posterior values in the four layer model presented in this paper are displayed in Figure~\ref{fig:3DenormPOSTERIORS-hsource}.
+
+\plot{3DenormPOSTERIORS-hsource}{width=\textwidth}{Posterior reliability of information from energy norm filtering calculated using Equation~\ref{eqn:Posterior} using a horizontal force. The objective is to maximize the percentages of true positives and negatives (green arrows) while minimizing the percentages of false positives and negatives (red arrows). }
+
+
+% \begin{table}[]
+%   \centering
+% \caption{Posterior reliability of information calculated using Equation~\ref{eqn:Posterior} for a 90\% energy filter.}
+% \label{table:POSTERIORS-4layer}
+% \setlength{\tabcolsep}{1em}
+% \begin{tabular}{|l|l|l|}
+%   \hline
+%   & Horizontal  & Horizontal    \\
+%   &  Source  &  Source 3C \\
+%   &    3C &       Geophone     \\
+%   & Geophone   &   \& DAS      \\
+%   \hline
+%   $Pr(\theta=\theta_R| \theta^{int}=\theta_R)$ & 34.77 \% & 34.7 \% \\
+%   \hline
+%   $Pr(\theta=\theta_R | \theta^{int}=\theta_{NR})$ & 39.79 \% & 39.64 \% \\
+%   \hline
+%   $Pr(\theta=\theta_{NR} | \theta^{int}=\theta_R)$ & 65.23 \% & 65.3 \%  \\
+%   \hline
+%   $Pr(\theta=\theta_{NR} | \theta^{int}=\theta_{NR})$ & 60.21 \% & 60.39 \%  \\
+%   \hline
+% \end{tabular}
+% \end{table}
+
+In this experiment, adding distributed sensors increases the probability of finding if a cell is not a reflector and decreases the probability of false negatives. Adding distributed sensors, however, increases the probability of identifying false positives and decreases the probability of finding true reflectors. This experiment, however, is inconclusive in identifying if DAS has added value with sparsely \sout{sampled} \hl{arranged} geophone data. A better DAS geometry must be tested to make further conclusions on the effectiveness of surface DAS fiber.
+
+The geometry shown in Figure~\ref{fig:idealstr8} is utilized to further test the effectiveness of surface DAS fiber. This new acquisition utilizes 25\% less fiber and 60\% fewer sources than the PoroTomo survey geometry. Quantitative analysis using the energy norm filtering methodology is utilized again to identify how well the survey imaged. The results are presented in Figure~\ref{fig:3DenormPOSTERIORS-str8}
+
+\plot{idealstr8}{width=.7\textwidth}{New survey geometry proposed to test the effectiveness of surface DAS fiber. Green dots represent source locations, red dots represent geophone locations, and the blue lines represent the surface DAS acquisition.}
+
+\plot{3DenormPOSTERIORS-str8}{width=\textwidth}{Posterior reliability of information using a horizontal force and the Figure~\ref{fig:idealstr8} acquisition geomtery. }
+
+Figure~\ref{fig:3DenormPOSTERIORS-str8} shows a significant increase in true positives and decrease in false negatives. Although there was an increase in false positives and a decrease in true negatives, the increase in true positives proves that this new acquisition is better suited to image the subsurface with surface DAS fibers. Energy norm imaging again allowed for an automatic method to interpret images output from the migration images. Filtering images based on amplitudes is a crude approximation of how an interpreter would ``interpret" an image.
+
+\subsection{3D Summary}
+This section discussed differences in modeling DAS data in 3D versus 2D. The experiments in this section helped clarify what kinds of data that a single surface DAS fiber can record. The experiments discovered that the DAS configuration in the PoroTomo survey combined with the low frequency nature of the modeling did not add value to the multi-component geophone imaging effort. Additionally, the percentages of missing strain components in 3D is larger than the 2D case, contributing to the poor image quality. A better geometry and multi-component DAS were required to make further conclusions on the effectiveness of DAS fiber in surface acquisition. Another experiment was preformed with DAS fibers arranged in 2D lines. This acquisition geometry led to an increased percentage of reflectors identified. It is concluded that the 2D surface DAS fiber lines are a better suited geometry to image the subsurface.

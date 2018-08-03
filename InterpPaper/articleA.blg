@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2016/MacPorts 2016_3)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: articleA.aux
+The style file: seg.bst
+Database file #1: demobib.bib.bib
+You can't pop an empty literal stack for entry claerbout1985imaging
+while executing---line 1586 of file seg.bst
+Warning--empty journal in cox2012distributed
+Warning--empty journal in folsomimaging
+Warning--empty publisher in Gerven2018
+Warning--empty journal in matzelseismic
+Warning--empty journal in Szegedy2015
+You've used 29 entries,
+            2639 wiz_defined-function locations,
+            856 strings with 12612 characters,
+and the built_in function-call counts, 13492 in all, are:
+= -- 1402
+> -- 863
+< -- 9
++ -- 313
+- -- 312
+* -- 1248
+:= -- 2402
+add.period$ -- 30
+call.type$ -- 29
+change.case$ -- 294
+chr.to.int$ -- 28
+cite$ -- 34
+duplicate$ -- 392
+empty$ -- 758
+format.name$ -- 349
+if$ -- 2686
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 31
+newline$ -- 92
+num.names$ -- 87
+pop$ -- 273
+preamble$ -- 1
+purify$ -- 294
+quote$ -- 0
+skip$ -- 303
+stack$ -- 0
+substring$ -- 671
+swap$ -- 26
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 168
+warning$ -- 5
+while$ -- 83
+width$ -- 0
+write$ -- 306
+(There was 1 error message)
